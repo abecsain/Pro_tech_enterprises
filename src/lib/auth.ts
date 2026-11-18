@@ -2,7 +2,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
 
-const JWT_SECRET = process.env.JWT_SECRET || "pte_super_secret_jwt_key_2026_enterprise_secure";
+const JWT_SECRET =
+  process.env.JWT_SECRET ||
+  process.env.SUPABASE_JWT_SECRET ||
+  "pte_super_secret_jwt_key_2026_enterprise_secure";
 const ADMIN_COOKIE_NAME = "pte_admin_session";
 const BUYER_COOKIE_NAME = "pte_buyer_session";
 
