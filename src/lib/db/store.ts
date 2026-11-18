@@ -39,12 +39,22 @@ interface PTEDataStore {
   settings: ApplicationSettings;
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const DATA_FILE = path.join(DATA_DIR, "pte_database.json");
+const IS_VERCEL = !!process.env.VERCEL;
+const BUNDLED_DATA_FILE = path.join(process.cwd(), "data", "pte_database.json");
+const RUNTIME_DATA_FILE = IS_VERCEL
+  ? path.join("/tmp", "pte_database.json")
+  : BUNDLED_DATA_FILE;
 
-// Ensure data folder exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+// Ensure local data folder exists if running locally
+if (!IS_VERCEL) {
+  const localDir = path.join(process.cwd(), "data");
+  if (!fs.existsSync(localDir)) {
+    try {
+      fs.mkdirSync(localDir, { recursive: true });
+    } catch {
+      // Ignore
+    }
+  }
 }
 
 // In-memory cache + persistent file synchronization
@@ -669,17 +679,30 @@ function loadStore(): PTEDataStore {
     return memoryStore;
   }
 
-  if (fs.existsSync(DATA_FILE)) {
+  // 1. Try reading from runtime data file (/tmp in Vercel or local data file)
+  if (fs.existsSync(RUNTIME_DATA_FILE)) {
     try {
-      const content = fs.readFileSync(DATA_FILE, "utf-8");
+      const content = fs.readFileSync(RUNTIME_DATA_FILE, "utf-8");
       memoryStore = JSON.parse(content);
       return memoryStore!;
     } catch (e) {
-      console.error("Failed to parse persistent data file, re-seeding:", e);
+      console.error("Failed to parse runtime data file:", e);
     }
   }
 
-  // Initial Seed
+  // 2. If in Vercel and /tmp doesn't have it yet, load from bundled file in repo
+  if (IS_VERCEL && fs.existsSync(BUNDLED_DATA_FILE)) {
+    try {
+      const content = fs.readFileSync(BUNDLED_DATA_FILE, "utf-8");
+      memoryStore = JSON.parse(content);
+      saveStore();
+      return memoryStore!;
+    } catch (e) {
+      console.error("Failed to parse bundled data file:", e);
+    }
+  }
+
+  // 3. Fallback Initial Seed
   memoryStore = seedDatabase();
   saveStore();
   return memoryStore;
@@ -688,7 +711,7 @@ function loadStore(): PTEDataStore {
 function saveStore() {
   if (!memoryStore) return;
   try {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(memoryStore, null, 2), "utf-8");
+    fs.writeFileSync(RUNTIME_DATA_FILE, JSON.stringify(memoryStore, null, 2), "utf-8");
   } catch (e) {
     console.error("Failed to write persistent data file:", e);
   }
