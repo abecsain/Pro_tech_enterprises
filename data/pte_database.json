@@ -1,0 +1,646 @@
+{
+  "profiles": [
+    {
+      "id": "admin_super",
+      "email": "admin@protechenterprises.com",
+      "full_name": "Super Admin (Pro Tech)",
+      "role_id": "role_super_admin",
+      "role": {
+        "id": "role_super_admin",
+        "name": "Super Admin",
+        "slug": "super_admin",
+        "description": "Full access to all modules, inventory, pricing, and system configuration",
+        "created_at": "2026-11-18T11:17:12.708Z"
+      },
+      "phone": "+91 98765 43210",
+      "status": "active",
+      "last_login_at": "2026-11-18T11:17:12.708Z",
+      "created_at": "2026-11-18T11:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "admin_manager",
+      "email": "manager@protechenterprises.com",
+      "full_name": "Production Manager",
+      "role_id": "role_manager",
+      "role": {
+        "id": "role_manager",
+        "name": "Manager",
+        "slug": "manager",
+        "description": "Factory floor stock entry, product updates, and booking review",
+        "created_at": "2026-11-18T11:17:12.708Z"
+      },
+      "phone": "+91 98765 43211",
+      "status": "active",
+      "last_login_at": "2026-11-18T11:17:12.708Z",
+      "created_at": "2026-11-18T11:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_led_bulbs",
+      "name": "LED Bulbs & Lamps",
+      "slug": "led-bulbs-and-lamps",
+      "description": "High-efficacy, surge-protected LED lamps for residential and retail applications.",
+      "image_url": "https://images.unsplash.com/photo-1550524514-9b60459521ef?w=400&auto=format&fit=crop&q=80",
+      "default_markup_percent": 15,
+      "is_archived": false,
+      "sort_order": 1,
+      "created_at": "2026-11-18T11:17:12.705Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "cat_led_panels",
+      "name": "LED Panels & Downlights",
+      "slug": "led-panels-and-downlights",
+      "description": "Slimline edge-lit & backlit ceiling panels engineered for commercial offices and showrooms.",
+      "image_url": "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=400&auto=format&fit=crop&q=80",
+      "default_markup_percent": 20,
+      "is_archived": false,
+      "sort_order": 2,
+      "created_at": "2026-11-18T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "cat_drivers",
+      "name": "LED Drivers & Power Supplies",
+      "slug": "led-drivers-and-power-supplies",
+      "description": "Isolated constant-current and constant-voltage drivers with 4kV surge protection.",
+      "image_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&auto=format&fit=crop&q=80",
+      "default_markup_percent": 25,
+      "is_archived": false,
+      "sort_order": 3,
+      "created_at": "2026-11-18T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "cat_electrical",
+      "name": "Electrical Components & PCBAs",
+      "slug": "electrical-components-and-pcbas",
+      "description": "SMD MCPCB arrays, capacitors, bridge rectifiers, and custom PCB assemblies.",
+      "image_url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&auto=format&fit=crop&q=80",
+      "default_markup_percent": 18,
+      "is_archived": false,
+      "sort_order": 4,
+      "created_at": "2026-11-18T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "cat_housings",
+      "name": "Housings & Raw Materials",
+      "slug": "housings-and-raw-materials",
+      "description": "Die-cast aluminium fixtures, thermal conductive plastic housings, and polycarbonate diffusers.",
+      "image_url": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=400&auto=format&fit=crop&q=80",
+      "default_markup_percent": 15,
+      "is_archived": false,
+      "sort_order": 5,
+      "created_at": "2026-11-18T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "Pro Eco LED Bulb - High Lumen (B22/E27)",
+      "sku": "PTE-BLB-ECO-01",
+      "category_id": "cat_led_bulbs",
+      "subcategory": "Domestic Bulbs",
+      "description": "High lumen efficiency (>105 lm/W) domestic LED bulb featuring high surge endurance up to 3.5kV. Designed for extreme voltage fluctuation tolerance.",
+      "image_url": "https://images.unsplash.com/photo-1550524514-9b60459521ef?w=600&auto=format&fit=crop&q=80",
+      "unit": "Box (50 Pcs)",
+      "internal_cost": 32,
+      "default_selling_price": 46,
+      "min_stock_threshold": 150,
+      "moq": 10,
+      "status": "active",
+      "is_archived": false,
+      "created_at": "2026-11-08T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "prod_002",
+      "name": "Pro Lumen Slim Square LED Panel (15W)",
+      "sku": "PTE-PNL-SQ15",
+      "category_id": "cat_led_panels",
+      "subcategory": "Recessed Downlights",
+      "description": "Ultra-slim 12mm recessed ceiling panel with optical grade PMMA light guide plate for uniform glare-free luminescence (6500K Cool Daylight).",
+      "image_url": "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=600&auto=format&fit=crop&q=80",
+      "unit": "Box (20 Pcs)",
+      "internal_cost": 135,
+      "default_selling_price": 195,
+      "min_stock_threshold": 60,
+      "moq": 5,
+      "status": "active",
+      "is_archived": false,
+      "created_at": "2026-11-09T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "prod_003",
+      "name": "Industrial Constant Current LED Driver 40W (Isolated)",
+      "sku": "PTE-DRV-CC40W",
+      "category_id": "cat_drivers",
+      "subcategory": "Commercial Drivers",
+      "description": "Heavy-duty isolated LED driver with active Power Factor Correction (PF > 0.98), THD < 10%, 4.5kV surge immunity and potted thermal epoxy encapsulation.",
+      "image_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
+      "unit": "Box (40 Pcs)",
+      "internal_cost": 88,
+      "default_selling_price": 132,
+      "min_stock_threshold": 100,
+      "moq": 10,
+      "status": "active",
+      "is_archived": false,
+      "created_at": "2026-11-10T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "prod_004",
+      "name": "Aluminium Die-Cast Street Light Housing 60W",
+      "sku": "PTE-HSG-SL60",
+      "category_id": "cat_housings",
+      "subcategory": "Outdoor Fixtures",
+      "description": "IP66 rated aerodynamic die-cast ADC12 aluminium fixture housing with toughened glass cover and anti-corrosion electrostatic powder coat.",
+      "image_url": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=600&auto=format&fit=crop&q=80",
+      "unit": "Carton (10 Pcs)",
+      "internal_cost": 320,
+      "default_selling_price": 460,
+      "min_stock_threshold": 30,
+      "moq": 2,
+      "status": "active",
+      "is_archived": false,
+      "created_at": "2026-11-11T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "prod_005",
+      "name": "High Power MCPCB LED Module 9W (130 lm/W)",
+      "sku": "PTE-PCB-MCP9W",
+      "category_id": "cat_electrical",
+      "subcategory": "PCB Arrays",
+      "description": "High thermal conductivity aluminium substrate fitted with premium Seoul/Edison 2835 SMD chips. CRI > 82 for crisp natural illumination.",
+      "image_url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80",
+      "unit": "Pack (500 Pcs)",
+      "internal_cost": 11.5,
+      "default_selling_price": 17.5,
+      "min_stock_threshold": 200,
+      "moq": 1,
+      "status": "active",
+      "is_archived": false,
+      "created_at": "2026-11-12T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "prod_006",
+      "name": "Pro Commercial Downlight Fixture 18W (Round)",
+      "sku": "PTE-DWN-RD18",
+      "category_id": "cat_led_panels",
+      "subcategory": "Downlights",
+      "description": "Spring-loaded ceiling architectural downlight with deep reflector recess minimizing UGR glare for high-end retail and corporate spaces.",
+      "image_url": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&auto=format&fit=crop&q=80",
+      "unit": "Box (24 Pcs)",
+      "internal_cost": 165,
+      "default_selling_price": 245,
+      "min_stock_threshold": 40,
+      "moq": 5,
+      "status": "active",
+      "is_archived": false,
+      "created_at": "2026-11-13T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    }
+  ],
+  "variants": [
+    {
+      "id": "var_001_5w",
+      "product_id": "prod_001",
+      "variant_name": "5 Watt",
+      "sku": "PTE-BLB-ECO-05W",
+      "internal_cost": 26,
+      "default_selling_price": 38,
+      "min_stock_threshold": 100,
+      "moq": 10,
+      "unit": "Box (50 Pcs)",
+      "status": "active",
+      "created_at": "2026-11-18T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "var_001_9w",
+      "product_id": "prod_001",
+      "variant_name": "9 Watt",
+      "sku": "PTE-BLB-ECO-09W",
+      "internal_cost": 32,
+      "default_selling_price": 46,
+      "min_stock_threshold": 150,
+      "moq": 10,
+      "unit": "Box (50 Pcs)",
+      "status": "active",
+      "created_at": "2026-11-18T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.707Z"
+    },
+    {
+      "id": "var_001_12w",
+      "product_id": "prod_001",
+      "variant_name": "12 Watt",
+      "sku": "PTE-BLB-ECO-12W",
+      "internal_cost": 41,
+      "default_selling_price": 58,
+      "min_stock_threshold": 120,
+      "moq": 10,
+      "unit": "Box (50 Pcs)",
+      "status": "active",
+      "created_at": "2026-11-18T11:17:12.707Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "var_001_15w",
+      "product_id": "prod_001",
+      "variant_name": "15 Watt",
+      "sku": "PTE-BLB-ECO-15W",
+      "internal_cost": 52,
+      "default_selling_price": 74,
+      "min_stock_threshold": 80,
+      "moq": 10,
+      "unit": "Box (50 Pcs)",
+      "status": "active",
+      "created_at": "2026-11-18T11:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "inventory": [
+    {
+      "id": "inv_prod_001",
+      "product_id": "prod_001",
+      "current_stock": 450,
+      "reserved_stock": 0,
+      "available_stock": 450,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "inv_prod_002",
+      "product_id": "prod_002",
+      "current_stock": 35,
+      "reserved_stock": 0,
+      "available_stock": 35,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "inv_prod_003",
+      "product_id": "prod_003",
+      "current_stock": 220,
+      "reserved_stock": 20,
+      "available_stock": 200,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "inv_prod_004",
+      "product_id": "prod_004",
+      "current_stock": 65,
+      "reserved_stock": 0,
+      "available_stock": 65,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "inv_prod_005",
+      "product_id": "prod_005",
+      "current_stock": 1200,
+      "reserved_stock": 100,
+      "available_stock": 1100,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "inv_prod_006",
+      "product_id": "prod_006",
+      "current_stock": 0,
+      "reserved_stock": 0,
+      "available_stock": 0,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "movements": [
+    {
+      "id": "mov_001",
+      "product_id": "prod_001",
+      "product_name": "Pro Eco LED Bulb - High Lumen (B22/E27)",
+      "product_sku": "PTE-BLB-ECO-01",
+      "previous_stock": 0,
+      "quantity_changed": 450,
+      "new_stock": 450,
+      "movement_type": "production_addition",
+      "admin_user_name": "Super Admin",
+      "note": "Batch #2026-B11 assembly line output received",
+      "created_at": "2026-11-15T11:17:12.708Z"
+    },
+    {
+      "id": "mov_002",
+      "product_id": "prod_002",
+      "product_name": "Pro Lumen Slim Square LED Panel (15W)",
+      "product_sku": "PTE-PNL-SQ15",
+      "previous_stock": 85,
+      "quantity_changed": -50,
+      "new_stock": 35,
+      "movement_type": "manual_reduction",
+      "admin_user_name": "Production Manager",
+      "note": "Dispatched order #PO-8812 to Delhi Distributor Hub",
+      "created_at": "2026-11-16T11:17:12.708Z"
+    },
+    {
+      "id": "mov_003",
+      "product_id": "prod_003",
+      "product_name": "Industrial Constant Current LED Driver 40W (Isolated)",
+      "product_sku": "PTE-DRV-CC40W",
+      "previous_stock": 120,
+      "quantity_changed": 100,
+      "new_stock": 220,
+      "movement_type": "production_addition",
+      "admin_user_name": "Super Admin",
+      "note": "Wave soldering & potting station completion",
+      "created_at": "2026-11-17T11:17:12.708Z"
+    },
+    {
+      "id": "mov_004",
+      "product_id": "prod_006",
+      "product_name": "Pro Commercial Downlight Fixture 18W (Round)",
+      "product_sku": "PTE-DWN-RD18",
+      "previous_stock": 40,
+      "quantity_changed": -40,
+      "new_stock": 0,
+      "movement_type": "booking_fulfilment",
+      "admin_user_name": "Super Admin",
+      "note": "Fulfilled institutional order for Commercial Plaza project",
+      "created_at": "2026-11-17T23:17:12.708Z"
+    }
+  ],
+  "recipients": [
+    {
+      "id": "rec_metro",
+      "name": "Metro Electrical Distributors",
+      "company_name": "Metro Wholesale Electricals Pvt Ltd",
+      "phone": "+91 98110 99881",
+      "email": "orders@metrowholesale.in",
+      "whatsapp_number": "919811099881",
+      "portal_display_name": "Metro Electricals Private Wholesale Portal",
+      "status": "active",
+      "notes": "Tier-1 Wholesaler covering North India Region. Bulk payment terms net 15.",
+      "created_at": "2026-11-03T11:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "rec_bright",
+      "name": "Bright Lightings Corp",
+      "company_name": "Bright Lightings & Components",
+      "phone": "+91 97223 44556",
+      "email": "procurement@brightlightings.com",
+      "whatsapp_number": "919722344556",
+      "portal_display_name": "Bright Lightings B2B Catalog",
+      "status": "active",
+      "notes": "OEM Lighting Assembler sourcing our LED Drivers and Housings.",
+      "created_at": "2026-11-06T11:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "credentials": [
+    {
+      "id": "cred_metro",
+      "recipient_id": "rec_metro",
+      "login_id": "metro_wholesale",
+      "password_hash": "$2a$10$XaAH4M/llN9HF9/Y0X9YBu2FItGJXUfVHYJDUllg.SzXSQzzXA6hC",
+      "plain_preview": "buyer123",
+      "last_login_at": "2026-11-18T11:18:32.855Z",
+      "failed_login_attempts": 0,
+      "is_locked": false,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "cred_bright",
+      "recipient_id": "rec_bright",
+      "login_id": "bright_corp",
+      "password_hash": "$2a$10$XaAH4M/llN9HF9/Y0X9YBu2FItGJXUfVHYJDUllg.SzXSQzzXA6hC",
+      "plain_preview": "buyer123",
+      "last_login_at": "2026-11-17T05:17:12.708Z",
+      "failed_login_attempts": 0,
+      "is_locked": false,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "shareLinks": [
+    {
+      "id": "link_metro",
+      "recipient_id": "rec_metro",
+      "token": "pte-metro-auth-8f2c9",
+      "expires_at": "2027-01-02T11:17:12.708Z",
+      "status": "active",
+      "last_accessed_at": "2026-11-18T11:18:32.855Z",
+      "notes": "Exclusive wholesale link for Metro Electrical Distributors",
+      "category_ids": [
+        "cat_led_bulbs",
+        "cat_led_panels",
+        "cat_drivers",
+        "cat_electrical"
+      ],
+      "product_ids": [
+        "prod_001",
+        "prod_002",
+        "prod_003",
+        "prod_004",
+        "prod_005",
+        "prod_006"
+      ],
+      "created_at": "2026-11-03T11:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "link_bright",
+      "recipient_id": "rec_bright",
+      "token": "pte-bright-token-3a7d1",
+      "expires_at": "2026-12-18T11:17:12.708Z",
+      "status": "active",
+      "last_accessed_at": "2026-11-17T05:17:12.708Z",
+      "notes": "Special pricing for Drivers and Housings only",
+      "category_ids": [
+        "cat_drivers",
+        "cat_housings",
+        "cat_electrical"
+      ],
+      "product_ids": [
+        "prod_003",
+        "prod_004",
+        "prod_005"
+      ],
+      "created_at": "2026-11-06T11:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "recipientPrices": [
+    {
+      "id": "rpp_001",
+      "recipient_id": "rec_metro",
+      "product_id": "prod_001",
+      "custom_selling_price": 43.5,
+      "custom_moq": 15,
+      "is_active": true,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    },
+    {
+      "id": "rpp_002",
+      "recipient_id": "rec_metro",
+      "product_id": "prod_003",
+      "custom_selling_price": 125,
+      "custom_moq": 20,
+      "is_active": true,
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bkg_1795000712874",
+      "booking_reference": "PTE-BKG-202611-184",
+      "recipient_id": "rec_metro",
+      "recipient_name": "Metro Electrical Distributors",
+      "company_name": "Metro Wholesale Electricals Pvt Ltd",
+      "share_link_id": "link_metro",
+      "status": "pending",
+      "total_estimated_amount": 870,
+      "whatsapp_message_payload": "Hello Pro Tech Enterprises,\n\nI would like to request the following bulk products:\n\n1. Product: Pro Eco LED Bulb - High Lumen (B22/E27)\n   Quantity: 20 Box (50 Pcs)\n   Price: ₹43.5/Box (50 Pcs)\n   Total: ₹870\n\nEstimated Total: ₹870\n\nBuyer Name: Metro Electrical Distributors\nLogin ID: metro_wholesale\nBooking Reference: PTE-BKG-202611-184\n\nPlease confirm product availability and dispatch timeline.\n\nThank you.",
+      "items": [
+        {
+          "id": "bitem_1795000712874_1",
+          "booking_id": "bkg_1795000712874",
+          "product_id": "prod_001",
+          "product_name": "Pro Eco LED Bulb - High Lumen (B22/E27)",
+          "sku": "PTE-BLB-ECO-01",
+          "quantity": 20,
+          "unit_price": 43.5,
+          "total_price": 870
+        }
+      ],
+      "created_at": "2026-11-18T11:18:32.882Z",
+      "updated_at": "2026-11-18T11:18:32.882Z"
+    },
+    {
+      "id": "bkg_001",
+      "booking_reference": "PTE-BKG-202611-001",
+      "recipient_id": "rec_metro",
+      "recipient_name": "Metro Electrical Distributors",
+      "company_name": "Metro Wholesale Electricals Pvt Ltd",
+      "share_link_id": "link_metro",
+      "status": "approved",
+      "total_estimated_amount": 87500,
+      "admin_remarks": "Stock reserved. Expected dispatch in 48 hours via Delhi Cargo.",
+      "whatsapp_message_payload": "Hello Pro Tech Enterprises,\nI would like to request the following bulk products:\n1. Product: Pro Eco LED Bulb (9W)\n   Quantity: 1000 Pcs\n   Price: ₹43.50/Pcs\n   Total: ₹43,500\n\nEstimated Total: ₹87,500\nRecipient ID: metro_wholesale\nBooking Reference: PTE-BKG-202611-001",
+      "items": [
+        {
+          "id": "item_001",
+          "booking_id": "bkg_001",
+          "product_id": "prod_001",
+          "product_name": "Pro Eco LED Bulb - High Lumen (B22/E27)",
+          "sku": "PTE-BLB-ECO-01",
+          "quantity": 20,
+          "unit_price": 2175,
+          "total_price": 43500
+        },
+        {
+          "id": "item_002",
+          "booking_id": "bkg_001",
+          "product_id": "prod_003",
+          "product_name": "Industrial Constant Current LED Driver 40W (Isolated)",
+          "sku": "PTE-DRV-CC40W",
+          "quantity": 20,
+          "unit_price": 2200,
+          "total_price": 44000
+        }
+      ],
+      "created_at": "2026-11-17T17:17:12.708Z",
+      "updated_at": "2026-11-18T11:17:12.708Z"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "res_001",
+      "booking_id": "bkg_001",
+      "product_id": "prod_003",
+      "reserved_quantity": 20,
+      "status": "reserved",
+      "created_at": "2026-11-17T17:17:12.708Z"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": "act_1795000712882_302",
+      "user_name": "Metro Electrical Distributors",
+      "user_role": "recipient",
+      "action": "Submitted Booking Request: PTE-BKG-202611-184",
+      "module": "bookings",
+      "details": {
+        "bookingId": "bkg_1795000712874",
+        "totalAmount": 870,
+        "itemsCount": 1
+      },
+      "created_at": "2026-11-18T11:18:32.882Z"
+    },
+    {
+      "id": "act_1795000712722_354",
+      "user_name": "Super Admin (Pro Tech)",
+      "user_role": "super_admin",
+      "action": "Admin Logged In",
+      "module": "auth",
+      "details": {
+        "email": "admin@protechenterprises.com"
+      },
+      "created_at": "2026-11-18T11:18:32.722Z"
+    },
+    {
+      "id": "act_001",
+      "user_name": "Super Admin",
+      "user_role": "super_admin",
+      "action": "Created Private Share Link",
+      "module": "share_links",
+      "details": {
+        "recipient": "Metro Electrical Distributors",
+        "token": "pte-metro-auth-8f2c9"
+      },
+      "created_at": "2026-11-03T11:17:12.708Z"
+    },
+    {
+      "id": "act_002",
+      "user_name": "Super Admin",
+      "user_role": "super_admin",
+      "action": "Stock Production Addition",
+      "module": "inventory",
+      "details": {
+        "product": "PTE-BLB-ECO-01",
+        "quantity": 450
+      },
+      "created_at": "2026-11-15T11:17:12.708Z"
+    },
+    {
+      "id": "act_003",
+      "user_name": "Super Admin",
+      "user_role": "super_admin",
+      "action": "Approved WhatsApp Booking",
+      "module": "bookings",
+      "details": {
+        "reference": "PTE-BKG-202611-001",
+        "total": 87500
+      },
+      "created_at": "2026-11-17T17:17:12.708Z"
+    }
+  ],
+  "settings": {
+    "company_name": "Pro Tech Enterprises",
+    "company_tagline": "Electronics & LED Lighting Assembly",
+    "company_description": "Premier OEM/ODM manufacturer and assembler of commercial & domestic LED lighting, electronic drivers, and precision electrical assemblies.",
+    "company_whatsapp": "919876543210",
+    "company_email": "contact@protechenterprises.com",
+    "company_phone": "+91 11 2345 6789",
+    "company_address": "Plot 42, Electronics Manufacturing Cluster, Sector 58, Faridabad, Haryana, India - 121004",
+    "website_url": "https://protechenterprises.com",
+    "default_unit": "Pcs",
+    "default_min_stock": 50,
+    "allow_negative_stock": false,
+    "default_link_expiry_days": 30,
+    "session_duration_hours": 24,
+    "low_stock_notification": true,
+    "new_booking_notification": true
+  }
+}
