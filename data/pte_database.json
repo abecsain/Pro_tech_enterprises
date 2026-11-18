@@ -566,6 +566,17 @@
   ],
   "activityLogs": [
     {
+      "id": "act_1795001137566_541",
+      "user_name": "Super Admin (Pro Tech)",
+      "user_role": "super_admin",
+      "action": "Admin Logged In",
+      "module": "auth",
+      "details": {
+        "email": "admin@protechenterprises.com"
+      },
+      "created_at": "2026-11-18T11:25:37.566Z"
+    },
+    {
       "id": "act_1795000712882_302",
       "user_name": "Metro Electrical Distributors",
       "user_role": "recipient",
