@@ -91,14 +91,16 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
     <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row text-slate-800 antialiased">
       {/* Mobile Top Navigation Bar */}
       <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-slate-200 text-slate-900 sticky top-0 z-40">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white font-bold">
+        <Link href="/admin/dashboard" className="flex items-center gap-2 group hover:opacity-90 transition">
+          <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform">
             <Zap className="w-4 h-4 fill-white" />
           </div>
           <div>
-            <span className="font-extrabold text-sm uppercase tracking-wide">PRO TECH ADMIN</span>
+            <span className="font-extrabold text-sm uppercase tracking-wide text-slate-950 group-hover:text-blue-600 transition-colors">
+              PRO TECH ADMIN
+            </span>
           </div>
-        </div>
+        </Link>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-slate-900"
@@ -114,19 +116,23 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
         }`}
       >
         {/* Brand Header */}
-        <div className="h-16 flex items-center px-6 border-b border-slate-200 gap-3 bg-slate-50/70">
-          <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black shadow-md shadow-blue-500/20">
+        <Link
+          href="/admin/dashboard"
+          className="h-16 flex items-center px-6 border-b border-slate-200 gap-3 bg-slate-50/70 group hover:bg-slate-100/80 transition"
+          title="Return to Admin Dashboard"
+        >
+          <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
             <Zap className="w-5 h-5 fill-white" />
           </div>
           <div className="overflow-hidden">
-            <span className="font-black text-sm tracking-tight text-slate-950 uppercase block leading-tight">
+            <span className="font-black text-sm tracking-tight text-slate-950 uppercase block leading-tight group-hover:text-blue-600 transition-colors">
               PRO TECH <span className="text-blue-600">ENTERPRISES</span>
             </span>
             <span className="text-[10px] text-slate-500 font-semibold tracking-wider uppercase block">
               Admin Inventory OS
             </span>
           </div>
-        </div>
+        </Link>
 
         {/* Current User Badge */}
         {user && (

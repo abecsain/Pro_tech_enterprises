@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import {
   Cpu,
   ShieldCheck,
@@ -18,8 +19,14 @@ import {
   FileCheck,
 } from "lucide-react";
 import { db } from "@/lib/db";
+import { verifyAdminToken, ADMIN_COOKIE_NAME } from "@/lib/auth";
 
 export default function HomePage() {
+  const cookieStore = cookies();
+  const adminCookie = cookieStore.get(ADMIN_COOKIE_NAME)?.value;
+  const adminSession = adminCookie ? verifyAdminToken(adminCookie) : null;
+  const logoHref = adminSession ? "/admin/dashboard" : "/";
+
   const settings = db.getSettings();
   const cleanWhatsApp = settings.company_whatsapp.replace(/[^0-9]/g, "");
   const generalWhatsAppUrl = `https://wa.me/${cleanWhatsApp}?text=${encodeURIComponent(
@@ -51,25 +58,36 @@ export default function HomePage() {
       <header className="border-b border-slate-200/80 bg-white/95 backdrop-blur-md sticky top-0 z-50 transition-all shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo & Identity */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+          <Link
+            href={logoHref}
+            className="flex items-center gap-3.5 group transition"
+            title={adminSession ? "Open Admin Dashboard" : "Pro Tech Enterprises Home"}
+          >
+            <div className="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
               <Zap className="w-6 h-6 fill-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 uppercase">
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 uppercase group-hover:text-blue-600 transition-colors">
                   Pro Tech <span className="text-blue-600">Enterprises</span>
                 </span>
-                <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-200">
-                  <ShieldCheck className="w-3 h-3 text-blue-600" />
-                  Verified Plant
-                </span>
+                {adminSession ? (
+                  <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-200">
+                    <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                    Admin Session Active
+                  </span>
+                ) : (
+                  <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-200">
+                    <ShieldCheck className="w-3 h-3 text-blue-600" />
+                    Verified Plant
+                  </span>
+                )}
               </div>
               <p className="text-[11px] text-slate-500 font-medium tracking-wider uppercase">
                 Electronics Manufacturing & LED Lighting Assembly
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Contact Direct & WhatsApp CTA */}
           <div className="flex items-center gap-4">
@@ -382,14 +400,14 @@ export default function HomePage() {
       <footer className="mt-auto py-10 border-t border-slate-200 bg-slate-50 text-slate-500 text-xs text-center">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-200 pb-6 mb-6">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded bg-blue-600 flex items-center justify-center text-white font-bold text-xs">
+            <Link href={logoHref} className="flex items-center gap-2 group transition">
+              <div className="w-7 h-7 rounded bg-blue-600 flex items-center justify-center text-white font-bold text-xs group-hover:scale-105 transition-transform">
                 <Zap className="w-4 h-4 fill-white" />
               </div>
-              <span className="font-extrabold text-sm text-slate-900 uppercase">
+              <span className="font-extrabold text-sm text-slate-900 uppercase group-hover:text-blue-600 transition-colors">
                 Pro Tech <span className="text-blue-600">Enterprises</span>
               </span>
-            </div>
+            </Link>
             <p className="text-[11px] text-slate-500">
               Electronics Manufacturing, PCBA Assembly & LED Lighting OEM Plant &bull; Faridabad, Haryana, India
             </p>
